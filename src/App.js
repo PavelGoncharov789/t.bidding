@@ -16,7 +16,7 @@ function App() {
 
   const getTime = async () => {
     await axios
-      .get("http://localhost:5000/get-time")
+      .get("http://62.217.180.95:5000/get-time")
       .then(({ data }) => {
         setTimer(data);
       })
@@ -24,7 +24,7 @@ function App() {
   };
 
   const subscribe = async () => {
-    const eventSource = new EventSource(`http://localhost:5000/connect`);
+    const eventSource = new EventSource(`http://62.217.180.95:5000/connect`);
     eventSource.onmessage = function (event) {
       const data = JSON.parse(event.data);
       setTimer(data);
